@@ -1,344 +1,117 @@
+import React, { useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { ArrowRight, ChevronDown, Briefcase, Award, BarChart, Star } from 'lucide-react';
 
+const InteractivePortfolio = () => {
+  const [activeMetric, setActiveMetric] = useState(null);
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Marketing Executive Resume</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-            color: black;
-        }
+  const metricsData = [
+    { month: 'Jan', value: 30 },
+    { month: 'Feb', value: 45 },
+    { month: 'Mar', value: 55 },
+    { month: 'Apr', value: 70 },
+    { month: 'May', value: 85 },
+    { month: 'Jun', value: 100 }
+  ];
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+  const skills = [
+    { name: 'AI Strategy', level: 90, color: '#3498db' },
+    { name: 'Data Analysis', level: 85, color: '#2ecc71' },
+    { name: 'Marketing', level: 95, color: '#e74c3c' },
+    { name: 'Leadership', level: 88, color: '#9b59b6' }
+  ];
 
-        .section-header {
-            text-align: center;
-            margin: 60px 0 30px;
-        }
+  return (
+    <div className="max-w-4xl mx-auto p-6 bg-gray-50">
+      {/* Hero Section */}
+      <div className="text-center mb-12 p-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-lg">
+        <h1 className="text-4xl font-bold mb-4">Marketing Executive</h1>
+        <p className="text-xl mb-6">Marketing Innovation</p>
+        <div className="flex justify-center gap-4">
+          <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+            View Projects
+          </button>
+          <button className="border-2 border-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+            Download CV
+          </button>
+        </div>
+      </div>
 
-        .section-subheader {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
+      {/* Key Metrics */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold mb-6">Growth Metrics</h2>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <LineChart width={600} height={300} data={metricsData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis />
+            <Tooltip />
+            <Line 
+              type="monotone" 
+              dataKey="value" 
+              stroke="#8884d8" 
+              strokeWidth={2}
+              dot={{ r: 6 }}
+              activeDot={{ r: 8 }}
+            />
+          </LineChart>
+        </div>
+      </div>
 
-        .download-btn {
-            background-color: #000;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: opacity 0.3s;
-        }
+      {/* Skills Section */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold mb-6">Core Competencies</h2>
+        <div className="grid grid-cols-2 gap-4">
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer"
+              onMouseEnter={() => setHoveredSkill(skill.name)}
+              onMouseLeave={() => setHoveredSkill(null)}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-semibold">{skill.name}</span>
+                <span className="text-sm text-gray-600">{skill.level}%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className="h-full rounded-full transition-all duration-500"
+                  style={{
+                    width: hoveredSkill === skill.name ? `${skill.level}%` : '0%',
+                    backgroundColor: skill.color
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        .download-btn:hover {
-            opacity: 0.8;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .metric-card {
-            padding: 20px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .metric-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .metric-card h6 {
-            color: #666;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .skill-card {
-            padding: 25px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background: white;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .proof-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: opacity 0.3s;
-        }
-
-        .proof-btn:hover {
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-    <div class="header">
-        <h1>LEN CRUZ</h1>
-        <p>Tech marketing leader driving growth through data-driven strategies</p>
-        <button class="download-btn" onclick="window.open('https://drive.google.com/file/d/1tl9vZu4VWhAa6fbaIquKgGYh5zkAwjEk/view?usp=drive_link', '_blank')">Download CV</button>
+      {/* Projects Showcase */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[1, 2, 3, 4].map((project) => (
+          <div 
+            key={project}
+            className="group bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all cursor-pointer"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-blue-100 rounded-lg">
+                <Award className="text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold">Project {project}</h3>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Innovative AI-driven marketing campaign that increased engagement by 150%
+            </p>
+            <div className="flex items-center text-blue-600 group-hover:gap-2 transition-all">
+              View Details <ArrowRight className="ml-2" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
+  );
+};
 
-    <!-- Metrics Section -->
-    <h1 class="section-header">METRICS I'VE IMPROVED</h1>
-    <h4 class="section-subheader">These are just a few of the metrics I improved. These are taken from Stripe, GA4, Metabase, and others.</h4>
-
-    <div class="metrics-grid">
-        <!-- MRR Chart -->
-        <div class="metric-card">
-            <h3>Monthly Recurring Revenue</h3>
-            <h6>Monthly income from subscriptions/recurring payments</h6>
-            <canvas id="mrrChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- New Customers Chart -->
-        <div class="metric-card">
-            <h3>New Customers</h3>
-            <h6>User who has made their first transaction</h6>
-            <canvas id="customersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- New Subscribers Chart -->
-        <div class="metric-card">
-            <h3>New Subscribers</h3>
-            <h6>User who has enrolled in a recurring billing plan</h6>
-            <canvas id="subscribersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- Daily Revenue Chart -->
-        <div class="metric-card">
-            <h3>Daily Revenue</h3>
-            <h6>Total amount of money processed in a single day</h6>
-            <canvas id="revenueChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- First-time Buyers Chart -->
-        <div class="metric-card">
-            <h3>First-time Buyers</h3>
-            <h6>Users who made their initial purchase within a specific timeframe</h6>
-            <canvas id="buyersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- PWAU/DAU Chart -->
-        <div class="metric-card">
-            <h3>PWAU/DAU</h3>
-            <h6>Percentage of Daily Active Users who made a purchase, logged in, etc.</h6>
-            <canvas id="pwauChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-
-        <!-- Transactions Chart -->
-        <div class="metric-card">
-            <h3>Transactions</h3>
-            <h6>Total number of successful purchases completed on the platform</h6>
-            <canvas id="transactionsChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
-        </div>
-    </div>
-
-    <!-- Skills Section -->
-    <h1 class="section-header">SKILLS</h1>
-    <div class="skills-grid">
-        <div class="skill-card">
-            <h3>Product Marketing</h3>
-            <p>I excel at positioning and launching products, deeply understanding customer needs and crafting compelling narratives that drive demand. I've successfully launched several products, optimizing their go-to-market strategies and exceeding revenue targets.</p>
-        </div>
-        
-        <div class="skill-card">
-            <h3>Account-Based Marketing</h3>
-            <p>I'm proficient in identifying and engaging high-value accounts through personalized campaigns. My ABM strategies have resulted in increased win rates and significantly improved customer lifetime value within target accounts.</p>
-        </div>
-        
-        <div class="skill-card">
-            <h3>Growth Marketing</h3>
-            <p>I'm a data-driven marketer who leverages a multi-channel approach to accelerate user acquisition and engagement. I've implemented growth hacking techniques, achieving rapid user growth and maximizing marketing ROI.</p>
-        </div>
-        
-        <div class="skill-card">
-            <h3>AI Tool Proficiency</h3>
-            <p>I'm adept at leveraging AI-powered tools across the marketing funnel, from audience segmentation and content creation to campaign optimization and predictive analytics. I continuously explore and implement new AI solutions to enhance marketing efficiency and effectiveness.</p>
-        </div>
-        
-        <div class="skill-card">
-            <h3>Marketing Analytics</h3>
-            <p>I'm a data-driven decision-maker who excels at analyzing marketing performance across all channels. I leverage data visualization and key metrics to identify trends, measure ROI, and optimize campaigns for maximum impact.</p>
-        </div>
-        
-        <div class="skill-card">
-            <h3>Performance Marketing</h3>
-            <p>I'm skilled in optimizing paid advertising campaigns across various channels, including search, social, and display. I meticulously track campaign performance, A/B test different approaches, and continuously refine strategies to achieve the best possible return on ad spend.</p>
-        </div>
-    </div>
-
-    <script>
-        // Sample data for charts
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-        
-        // Chart configuration function
-        function createChart(ctx, label, data, color) {
-            return new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: months,
-                    datasets: [{
-                        label: label,
-                        data: data,
-                        borderColor: color,
-                        backgroundColor: color + '20',
-                        tension: 0.4,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        }
-
-     // Initialize charts with specific months and data
-    document.addEventListener('DOMContentLoaded', function() {
-        // MRR Chart (May to November)
-        createChart(
-            document.getElementById('mrrChart').getContext('2d'),
-            'MRR',
-            [400000, 461000, 492000, 523000, 554000, 585000],
-            '#4CAF50',
-            ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov']
-        );
-
-        // New Customers Chart (June to September)
-        createChart(
-            document.getElementById('customersChart').getContext('2d'),
-            'New Customers',
-            [100, 150, 200, 250],
-            '#2196F3',
-            ['Jun', 'Jul', 'Aug', 'Sep']
-        );
-
-        // New Subscribers Chart (June to September)
-        createChart(
-            document.getElementById('subscribersChart').getContext('2d'),
-            'New Subscribers',
-            [50, 75, 100, 125],
-            '#FFC107',
-            ['Jun', 'Jul', 'Aug', 'Sep']
-        );
-
-        // Daily Revenue Chart (8% to 13%)
-        createChart(
-            document.getElementById('revenueChart').getContext('2d'),
-            'Daily Revenue',
-            [8, 9, 10, 11, 12, 13],
-            '#9C27B0',
-            ['8%', '9%', '10%', '11%', '12%', '13%']
-        );
-
-        // First-time Buyers Chart (June to August)
-        createChart(
-            document.getElementById('buyersChart').getContext('2d'),
-            'First-time Buyers',
-            [75, 100, 150],
-            '#FF5722',
-            ['Jun', 'Jul', 'Aug']
-        );
-
-        // PWAU/DAU Chart (October to December)
-        createChart(
-            document.getElementById('pwauChart').getContext('2d'),
-            'PWAU/DAU',
-            [15, 18, 22],
-            '#795548',
-            ['Oct', 'Nov', 'Dec']
-        );
-
-        // Transactions Chart (July to August)
-        createChart(
-            document.getElementById('transactionsChart').getContext('2d'),
-            'Transactions',
-            [200, 250],
-            '#607D8B',
-            ['Jul', 'Aug']
-        );
-
-        // Cancellations Chart (March to December)
-        createChart(
-            document.getElementById('cancellationsChart').getContext('2d'),
-            'Cancellations',
-            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
-            '#E91E63',
-            ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        );
-    });
-</script>
-
-<body>
-    <canvas id="mrrChart"></canvas>
-    <canvas id="customersChart"></canvas>
-    <canvas id="subscribersChart"></canvas>
-    <canvas id="revenueChart"></canvas>
-    <canvas id="buyersChart"></canvas>
-    <canvas id="pwauChart"></canvas>
-    <canvas id="transactionsChart"></canvas>
-    <canvas id="cancellationsChart"></canvas>
-</body>
-    </script>
-</body>
-</html>
-
-
-
-
-
+export default InteractivePortfolio;
