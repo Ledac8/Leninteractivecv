@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,21 +75,22 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             margin: 40px 0;
         }
 
         .skill-card {
-            padding: 20px;
+            padding: 25px;
             border: 1px solid #eee;
             border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .proof-btn {
@@ -104,57 +107,6 @@
         .proof-btn:hover {
             opacity: 0.8;
         }
-
-        .team-values {
-            margin: 40px 0;
-        }
-
-        .value-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-
-        .value-card:hover {
-            transform: translateX(10px);
-        }
-
-        .working-style {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .style-card {
-            padding: 20px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-        }
-
-        .style-card h3 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .style-card ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .style-card li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .style-card li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-        }
     </style>
 </head>
 <body>
@@ -162,7 +114,7 @@
     <div class="header">
         <h1>LEN CRUZ</h1>
         <p>Tech marketing leader driving growth through data-driven strategies</p>
-        <button class="download-btn" onclick="window.open('YOUR_CV_LINK', '_blank')">Download CV</button>
+        <button class="download-btn" onclick="window.open('https://drive.google.com/file/d/1tl9vZu4VWhAa6fbaIquKgGYh5zkAwjEk/view?usp=drive_link', '_blank')">Download CV</button>
     </div>
 
     <!-- Metrics Section -->
@@ -170,13 +122,12 @@
     <h4 class="section-subheader">These are just a few of the metrics I improved. These are taken from Stripe, GA4, Metabase, and others.</h4>
 
     <div class="metrics-grid">
-        <!-- All 7 metric cards here with their charts -->
         <!-- MRR Chart -->
         <div class="metric-card">
             <h3>Monthly Recurring Revenue</h3>
             <h6>Monthly income from subscriptions/recurring payments</h6>
             <canvas id="mrrChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_MRR_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- New Customers Chart -->
@@ -184,7 +135,7 @@
             <h3>New Customers</h3>
             <h6>User who has made their first transaction</h6>
             <canvas id="customersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_CUSTOMERS_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- New Subscribers Chart -->
@@ -192,7 +143,7 @@
             <h3>New Subscribers</h3>
             <h6>User who has enrolled in a recurring billing plan</h6>
             <canvas id="subscribersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_SUBSCRIBERS_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- Daily Revenue Chart -->
@@ -200,7 +151,7 @@
             <h3>Daily Revenue</h3>
             <h6>Total amount of money processed in a single day</h6>
             <canvas id="revenueChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_REVENUE_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- First-time Buyers Chart -->
@@ -208,7 +159,7 @@
             <h3>First-time Buyers</h3>
             <h6>Users who made their initial purchase within a specific timeframe</h6>
             <canvas id="buyersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_BUYERS_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- PWAU/DAU Chart -->
@@ -216,7 +167,7 @@
             <h3>PWAU/DAU</h3>
             <h6>Percentage of Daily Active Users who made a purchase, logged in, etc.</h6>
             <canvas id="pwauChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_PWAU_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- Transactions Chart -->
@@ -224,61 +175,11 @@
             <h3>Transactions</h3>
             <h6>Total number of successful purchases completed on the platform</h6>
             <canvas id="transactionsChart"></canvas>
-            <button class="proof-btn" onclick="window.open('YOUR_TRANSACTIONS_PROOF_LINK', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
     </div>
 
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin: 40px 0;
-            font-family: 'Arial', sans-serif;  /* Added to match main font */
-        }
-
-        .skill-card {
-            padding: 25px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background: white;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-family: 'Arial', sans-serif;  /* Added to ensure consistency */
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .skill-card h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            font-family: 'Arial', sans-serif;  /* Added to match main font */
-            font-weight: normal;  /* Added to match main style */
-        }
-
-        .skill-card p {
-            color: #666;
-            line-height: 1.6;
-            margin: 0;
-            font-family: 'Arial', sans-serif;  /* Added to match main font */
-            font-size: 1em;  /* Added to match main text size */
-        }
-
-        .section-header {
-            text-align: center;
-            margin: 60px 0 40px;
-            color: #333;
-            font-family: 'Arial', sans-serif;  /* Added to match main font */
-        }
-    </style>
-</head>
-<body>
+    <!-- Skills Section -->
     <h1 class="section-header">SKILLS</h1>
     <div class="skills-grid">
         <div class="skill-card">
@@ -311,10 +212,105 @@
             <p>I'm skilled in optimizing paid advertising campaigns across various channels, including search, social, and display. I meticulously track campaign performance, A/B test different approaches, and continuously refine strategies to achieve the best possible return on ad spend.</p>
         </div>
     </div>
+
+    <script>
+        // Sample data for charts
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        
+        // Chart configuration function
+        function createChart(ctx, label, data, color) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: color,
+                        backgroundColor: color + '20',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize charts with sample data
+        document.addEventListener('DOMContentLoaded', function() {
+            // MRR Chart
+            createChart(
+                document.getElementById('mrrChart').getContext('2d'),
+                'MRR',
+                [10000, 12000, 15000, 18000, 22000, 25000],
+                '#4CAF50'
+            );
+
+            // New Customers Chart
+            createChart(
+                document.getElementById('customersChart').getContext('2d'),
+                'New Customers',
+                [100, 150, 200, 250, 300, 350],
+                '#2196F3'
+            );
+
+            // New Subscribers Chart
+            createChart(
+                document.getElementById('subscribersChart').getContext('2d'),
+                'New Subscribers',
+                [50, 75, 100, 125, 150, 175],
+                '#FFC107'
+            );
+
+            // Daily Revenue Chart
+            createChart(
+                document.getElementById('revenueChart').getContext('2d'),
+                'Daily Revenue',
+                [5000, 6000, 7500, 9000, 11000, 12500],
+                '#9C27B0'
+            );
+
+            // First-time Buyers Chart
+            createChart(
+                document.getElementById('buyersChart').getContext('2d'),
+                'First-time Buyers',
+                [75, 100, 150, 200, 250, 275],
+                '#FF5722'
+            );
+
+            // PWAU/DAU Chart
+            createChart(
+                document.getElementById('pwauChart').getContext('2d'),
+                'PWAU/DAU',
+                [15, 18, 22, 25, 28, 30],
+                '#795548'
+            );
+
+            // Transactions Chart
+            createChart(
+                document.getElementById('transactionsChart').getContext('2d'),
+                'Transactions',
+                [200, 250, 300, 375, 450, 500],
+                '#607D8B'
+            );
+        });
+    </script>
 </body>
 </html>
 
-        </script>
-</body>
-</html>
+
+
+
 
