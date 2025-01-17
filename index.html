@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,19 +73,38 @@
             font-weight: normal;
         }
 
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .skill-card {
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         .proof-btn {
-            background-color: black;
+            background-color: #4CAF50;
             color: white;
             padding: 8px 16px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             margin-top: 10px;
-            transition: background-color 0.3s, opacity 0.3s;
+            transition: opacity 0.3s;
         }
 
         .proof-btn:hover {
-            background-color: #4CAF50;
             opacity: 0.8;
         }
     </style>
@@ -93,7 +114,7 @@
     <div class="header">
         <h1>LEN CRUZ</h1>
         <p>Tech marketing leader driving growth through data-driven strategies</p>
-        <button class="download-btn" onclick="window.open('https://drive.google.com/file/d/1tl9vZu4VWhAa6fbaIquKgGYh5zkAwjEk/view?usp=drive_link', '_blank')">View Resume</button>
+        <button class="download-btn" onclick="window.open('https://drive.google.com/file/d/1tl9vZu4VWhAa6fbaIquKgGYh5zkAwjEk/view?usp=drive_link', '_blank')">Download CV</button>
     </div>
 
     <!-- Metrics Section -->
@@ -106,51 +127,102 @@
             <h3>Monthly Recurring Revenue</h3>
             <h6>Monthly income from subscriptions/recurring payments</h6>
             <canvas id="mrrChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://example.com', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- New Customers Chart -->
         <div class="metric-card">
             <h3>New Customers</h3>
-            <h6>Users who have made their first transaction</h6>
+            <h6>User who has made their first transaction</h6>
             <canvas id="customersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://example.com', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- New Subscribers Chart -->
         <div class="metric-card">
             <h3>New Subscribers</h3>
-            <h6>Users who have enrolled in a recurring billing plan</h6>
+            <h6>User who has enrolled in a recurring billing plan</h6>
             <canvas id="subscribersChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://example.com', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
         <!-- Daily Revenue Chart -->
         <div class="metric-card">
             <h3>Daily Revenue</h3>
-            <h6>Total amount of money processed daily</h6>
+            <h6>Total amount of money processed in a single day</h6>
             <canvas id="revenueChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://example.com', '_blank')">View Proof</button>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
         </div>
 
-        <!-- Cancellations Chart -->
+        <!-- First-time Buyers Chart -->
         <div class="metric-card">
-            <h3>Cancellations</h3>
-            <h6>Number of subscription cancellations</h6>
-            <canvas id="cancellationsChart"></canvas>
-            <button class="proof-btn" onclick="window.open('https://example.com', '_blank')">View Proof</button>
+            <h3>First-time Buyers</h3>
+            <h6>Users who made their initial purchase within a specific timeframe</h6>
+            <canvas id="buyersChart"></canvas>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
+        </div>
+
+        <!-- PWAU/DAU Chart -->
+        <div class="metric-card">
+            <h3>PWAU/DAU</h3>
+            <h6>Percentage of Daily Active Users who made a purchase, logged in, etc.</h6>
+            <canvas id="pwauChart"></canvas>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
+        </div>
+
+        <!-- Transactions Chart -->
+        <div class="metric-card">
+            <h3>Transactions</h3>
+            <h6>Total number of successful purchases completed on the platform</h6>
+            <canvas id="transactionsChart"></canvas>
+            <button class="proof-btn" onclick="window.open('https://earthy-attack-5d6.notion.site/Len-Cruz-Work-Overview-of-a-Growth-Marketing-GTM-Leader-131177c9b1388003bed1dedc3c9a2a74?pvs=4', '_blank')">View Proof</button>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <h1 class="section-header">SKILLS</h1>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Product Marketing</h3>
+            <p>I excel at positioning and launching products, deeply understanding customer needs and crafting compelling narratives that drive demand. I've successfully launched several products, optimizing their go-to-market strategies and exceeding revenue targets.</p>
+        </div>
+        
+        <div class="skill-card">
+            <h3>Account-Based Marketing</h3>
+            <p>I'm proficient in identifying and engaging high-value accounts through personalized campaigns. My ABM strategies have resulted in increased win rates and significantly improved customer lifetime value within target accounts.</p>
+        </div>
+        
+        <div class="skill-card">
+            <h3>Growth Marketing</h3>
+            <p>I'm a data-driven marketer who leverages a multi-channel approach to accelerate user acquisition and engagement. I've implemented growth hacking techniques, achieving rapid user growth and maximizing marketing ROI.</p>
+        </div>
+        
+        <div class="skill-card">
+            <h3>AI Tool Proficiency</h3>
+            <p>I'm adept at leveraging AI-powered tools across the marketing funnel, from audience segmentation and content creation to campaign optimization and predictive analytics. I continuously explore and implement new AI solutions to enhance marketing efficiency and effectiveness.</p>
+        </div>
+        
+        <div class="skill-card">
+            <h3>Marketing Analytics</h3>
+            <p>I'm a data-driven decision-maker who excels at analyzing marketing performance across all channels. I leverage data visualization and key metrics to identify trends, measure ROI, and optimize campaigns for maximum impact.</p>
+        </div>
+        
+        <div class="skill-card">
+            <h3>Performance Marketing</h3>
+            <p>I'm skilled in optimizing paid advertising campaigns across various channels, including search, social, and display. I meticulously track campaign performance, A/B test different approaches, and continuously refine strategies to achieve the best possible return on ad spend.</p>
         </div>
     </div>
 
     <script>
-        const mrrMonths = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'];
-        const dataMonths = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
-
+        // Sample data for charts
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        
+        // Chart configuration function
         function createChart(ctx, label, data, color) {
             return new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: dataMonths,
+                    labels: months,
                     datasets: [{
                         label: label,
                         data: data,
@@ -163,51 +235,110 @@
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: {
+                            display: false
+                        }
                     },
                     scales: {
-                        y: { beginAtZero: true }
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            createChart(
-                document.getElementById('mrrChart').getContext('2d'),
-                'MRR',
-                [400000, 450000, 500000, 550000, 600000, 650000],
-                '#4CAF50'
-            );
+     // Initialize charts with specific months and data
+    document.addEventListener('DOMContentLoaded', function() {
+        // MRR Chart (May to November)
+        createChart(
+            document.getElementById('mrrChart').getContext('2d'),
+            'MRR',
+            [400000, 461000, 492000, 523000, 554000, 585000],
+            '#4CAF50',
+            ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov']
+        );
 
-            createChart(
-                document.getElementById('customersChart').getContext('2d'),
-                'New Customers',
-                [100, 200, 300, 400, 500, 600],
-                '#2196F3'
-            );
+        // New Customers Chart (June to September)
+        createChart(
+            document.getElementById('customersChart').getContext('2d'),
+            'New Customers',
+            [100, 150, 200, 250],
+            '#2196F3',
+            ['Jun', 'Jul', 'Aug', 'Sep']
+        );
 
-            createChart(
-                document.getElementById('subscribersChart').getContext('2d'),
-                'New Subscribers',
-                [50, 75, 100, 125, 150, 175],
-                '#FFC107'
-            );
+        // New Subscribers Chart (June to September)
+        createChart(
+            document.getElementById('subscribersChart').getContext('2d'),
+            'New Subscribers',
+            [50, 75, 100, 125],
+            '#FFC107',
+            ['Jun', 'Jul', 'Aug', 'Sep']
+        );
 
-            createChart(
-                document.getElementById('revenueChart').getContext('2d'),
-                'Daily Revenue',
-                [5000, 10000, 15000, 20000, 25000, 30000],
-                '#9C27B0'
-            );
+        // Daily Revenue Chart (8% to 13%)
+        createChart(
+            document.getElementById('revenueChart').getContext('2d'),
+            'Daily Revenue',
+            [8, 9, 10, 11, 12, 13],
+            '#9C27B0',
+            ['8%', '9%', '10%', '11%', '12%', '13%']
+        );
 
-            createChart(
-                document.getElementById('cancellationsChart').getContext('2d'),
-                'Cancellations',
-                [5, 10, 15, 20, 25, 30],
-                '#FF5722'
-            );
-        });
+        // First-time Buyers Chart (June to August)
+        createChart(
+            document.getElementById('buyersChart').getContext('2d'),
+            'First-time Buyers',
+            [75, 100, 150],
+            '#FF5722',
+            ['Jun', 'Jul', 'Aug']
+        );
+
+        // PWAU/DAU Chart (October to December)
+        createChart(
+            document.getElementById('pwauChart').getContext('2d'),
+            'PWAU/DAU',
+            [15, 18, 22],
+            '#795548',
+            ['Oct', 'Nov', 'Dec']
+        );
+
+        // Transactions Chart (July to August)
+        createChart(
+            document.getElementById('transactionsChart').getContext('2d'),
+            'Transactions',
+            [200, 250],
+            '#607D8B',
+            ['Jul', 'Aug']
+        );
+
+        // Cancellations Chart (March to December)
+        createChart(
+            document.getElementById('cancellationsChart').getContext('2d'),
+            'Cancellations',
+            [10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
+            '#E91E63',
+            ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        );
+    });
+</script>
+
+<body>
+    <canvas id="mrrChart"></canvas>
+    <canvas id="customersChart"></canvas>
+    <canvas id="subscribersChart"></canvas>
+    <canvas id="revenueChart"></canvas>
+    <canvas id="buyersChart"></canvas>
+    <canvas id="pwauChart"></canvas>
+    <canvas id="transactionsChart"></canvas>
+    <canvas id="cancellationsChart"></canvas>
+</body>
     </script>
 </body>
 </html>
+
+
+
+
+
